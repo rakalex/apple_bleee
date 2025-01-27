@@ -135,6 +135,18 @@ phone_states = {
     '6e': 'Incoming call',
     '7a': 'Lock screen',
     '7b': 'Home screen',
+    '7e': 'Do Not Disturb',
+    '7f': 'Focus Mode',
+    '8a': 'Gaming',
+    '8b': 'App in use',
+    '8e': 'Sleep Mode',
+    '91': 'Workout Mode',
+    '93': 'Call on Hold',
+    '97': 'Low Power Mode',
+    '9a': 'Airplane Mode',
+    'a0': 'SOS Mode',
+    'a3': 'Silent Mode',
+    'af': 'Notification Center',
 }
 
 airpods_states = {
@@ -422,7 +434,12 @@ proximity_dev_models = {
     '0e20': 'AirPods Pro',
     '0320': 'Powerbeats3',
     '0520': 'BeatsX',
-    '0620': 'Beats Solo3'
+    '0620': 'Beats Solo3',
+    '0c20': 'AirPods Gen 3',
+    '0d20': 'AirPods Pro 2',
+    '0g20': 'Beats Studio Buds',
+    '0h20': 'Beats Fit Pro',
+    '0j20': 'Beats Studio Pro'
 }
 
 proximity_colors = {
@@ -466,9 +483,17 @@ homekit_category = {
     '1500': 'Air Conditioner',
     '1600': 'Humidifier',
     '1700': 'Dehumidifier',
+    '1800': 'Apple TV',
+    '1900': 'Speaker',
+    '1a00': 'Router',
+    '1b00': 'Remote Control',
     '1c00': 'Sprinklers',
     '1d00': 'Faucets',
     '1e00': 'Shower Systems',
+    '1f00': 'Smoke Detector',
+    '2000': 'Carbon Monoxide Detector',
+    '2100': 'Garage Door Controller',
+    '2200': 'Window Actuator'
 }
 
 siri_dev = {'0002': 'iPhone',
@@ -491,7 +516,11 @@ hotspot_net = {
     '05': '3G',
     '06': '4G',
     '07': 'LTE',
+    '08': 'LTE Advanced',
+    '09': '5G NR (Sub-6GHz)',
+    '0A': '5G NR (mmWave)'
 }
+
 ble_packets_types = {
     'airprint': '03',
     'airdrop': '05',
@@ -505,6 +534,12 @@ ble_packets_types = {
     'wifi_set': '0d',
     'hotspot': '0e',
     'wifi_join': '0f',
+    'proximity': '11',
+    'find_my': '12',
+    'ultra_wideband': '13',
+    'continuity': '14',
+    'carplay': '15',
+    'thread': '16'
 }
 
 if args.check_hash:
@@ -750,11 +785,23 @@ def parse_os_wifi_code(code, dev):
     elif code == '98':
         return ('WatchOS', '<unknown>')
     elif code == '1d':
-        return ('iOS15','On')
+        return ('iOS15', 'On')
     elif code == '19':
-        return ('iOS15','Off')
+        return ('iOS15', 'Off')
     elif code == '1f':
         return ('iOS16', 'On')
+    elif code == '2e':
+        return ('iOS16', 'Off')
+    elif code == '2f':
+        return ('iOS17', 'On')
+    elif code == '28':
+        return ('iOS17', 'Off')
+    elif code == '3c':
+        return ('Mac OS', 'Connecting')
+    elif code == '3e':
+        return ('WatchOS 10', 'On')
+    elif code == '3f':
+        return ('WatchOS 10', 'Off')
     else:
         return (f'{code}', f'{dev}')
 
